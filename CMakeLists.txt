@@ -1,0 +1,20 @@
+cmake_minimum_required(VERSION 3.5)
+project(Atomic)
+
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+function(add_my_executable TARGET)
+        add_executable(${TARGET} ${TARGET}.cpp)
+        target_compile_features(${TARGET} PUBLIC cxx_std_20)
+        set_target_properties(${TARGET} PROPERTIES CXX_STANDARD_REQUIRED ON)
+endfunction()
+
+add_my_executable(1_1_async_issue)
+add_my_executable(1_2_async_mutex)
+add_my_executable(2_1_atomic_operations)
+add_my_executable(2_2_atomic_flag)
+add_my_executable(2_3_atomic_compare_exchange)
+add_my_executable(5_1_memory_order_seq)
+add_my_executable(5_2_memory_order_relaxed)
+add_my_executable(5_3_memory_order_acq_rel)
